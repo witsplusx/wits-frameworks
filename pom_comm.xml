@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wits.frameworks</groupId>
+    <artifactId>frmwks-comm-parentall</artifactId>
+    <packaging>pom</packaging>
+    <version>v1.0.0</version>
+
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+
+        <repository>
+            <id>maven-repo</id>
+            <url>http://search.maven.org/</url>
+        </repository>
+
+        <repository>
+            <id>scalaz</id>
+            <name>scalaz</name>
+            <url>http://dl.bintray.com/scalaz/releases</url>
+        </repository>
+
+        <repository>
+            <id>mvnrepository</id>
+            <name>Derbysoft Release Repository</name>
+            <url>http://search.maven.org/remotecontent?filepath=</url>
+        </repository>
+
+        <repository>
+            <id>jahia</id>
+            <name>mvnrepository</name>
+            <url>http://maven.jahia.org/maven2</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <!-- 工程编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- jdk -->
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+
+
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.6.0</version>
+                    <configuration>
+                        <target>${java.version}</target>
+                        <source>${java.version}</source>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <fork>true</fork>
+                        <meminitial>1024m</meminitial>
+                        <maxmem>2048m</maxmem>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.0</version>
+                    <configuration>
+                        <testFailureIgnore>true</testFailureIgnore>
+                        <!--  -->
+                        <skipTests>true</skipTests>
+                        <includes>
+                            <include>**/*.java</include>
+                            <include>**/*.scala</include>
+                            <include>**/*.groovy</include>
+                        </includes>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jxr-plugin</artifactId>
+                    <version>2.5</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.4</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <version>0.9.6</version>
+                    <!--<configuration>
+                        <to>
+                            <image>myimage</image>
+                        </to>
+                    </configuration>-->
+                </plugin>
+
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>1.1.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <version>3.0.5</version>
+                    <configuration>
+                        <threshold>High</threshold>
+                        <effort>Default</effort>
+                        <findbugsXmlOutput>false</findbugsXmlOutput>
+                        <xmlOutput>false</xmlOutput>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <!--<plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+            </plugin>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+
+            <!-- Project Site -->
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.6</version>
+            </plugin>-->
+
+            <!-- Coverage -->
+            <!--<plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.8</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <propertyName>jacocoArgs</propertyName>
+                            <includes>
+                                <include>*</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+
+            <!-- PMD插件 -->
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.8</version>
+                <configuration>
+                    <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+                    <targetJdk>${java.version}</targetJdk>
+                    <printFailingErrors>true</printFailingErrors>
+                    &lt;!&ndash; 代码检查规则 &ndash;&gt;
+                    <rulesets>
+                        <ruleset>rulesets/java/ali-comment.xml</ruleset>
+                        <ruleset>rulesets/java/ali-concurrent.xml</ruleset>
+                        <ruleset>rulesets/java/ali-constant.xml</ruleset>
+                        <ruleset>rulesets/java/ali-exception.xml</ruleset>
+                        <ruleset>rulesets/java/ali-flowcontrol.xml</ruleset>
+                        <ruleset>rulesets/java/ali-naming.xml</ruleset>
+                        <ruleset>rulesets/java/ali-oop.xml</ruleset>
+                        <ruleset>rulesets/java/ali-orm.xml</ruleset>
+                        <ruleset>rulesets/java/ali-other.xml</ruleset>
+                        <ruleset>rulesets/java/ali-set.xml</ruleset>
+                    </rulesets>
+                </configuration>
+                <executions>
+                    &lt;!&ndash; 绑定pmd:check到verify生命周期 &ndash;&gt;
+                    <execution>
+                        <id>pmd-check-verify</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                    &lt;!&ndash; 绑定pmd:pmd到site生命周期 &ndash;&gt;
+                    <execution>
+                        <id>pmd-pmd-site</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>pmd</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                &lt;!&ndash; p3c依赖 &ndash;&gt;
+                <dependencies>
+                    <dependency>
+                        <groupId>com.alibaba.p3c</groupId>
+                        <artifactId>p3c-pmd</artifactId>
+                        <version>1.3.5</version>
+                    </dependency>
+                </dependencies>
+            </plugin>-->
+            <!-- 编译插件 Spring-Boot 项目不需要设置，因为parent中已设置 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+
+
+        </plugins>
+
+    </build>
+
+
+</project>

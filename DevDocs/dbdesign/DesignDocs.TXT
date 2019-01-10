@@ -1,0 +1,38 @@
+日志监控域模型(monitor log domain)
+前缀  mtl_
+    模块_：
+    模块_：
+    模块_：
+    模块_：
+
+
+基础管理域模型(foundation basic domain)
+前缀  fbd_
+    模块_系统配置安全：sca_       (system config authtication)
+    模块_元数据：meta_                (core meta data)
+    模块_：
+    模块_：
+
+
+业务应用域模型(bussness application domain)
+前缀  bua_
+    模块_AI问答聊天应用： smqa_
+    模块_电子商务： ecm_
+    模块_：
+    模块_：
+
+
+统计分析域模型(statistic analysis domain)
+前缀  sta_
+    模块_：
+    模块_：
+    模块_：
+    模块_：
+
+
+电商平台域模型（E-commerce platform）
+前缀  ecp_
+          模块_：
+    模块_：
+    模块_：
+    模块_：

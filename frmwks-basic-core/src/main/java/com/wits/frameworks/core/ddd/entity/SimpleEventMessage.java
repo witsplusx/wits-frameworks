@@ -1,5 +1,9 @@
+/*
 package com.wits.frameworks.core.ddd.entity;
 
+import org.axonframework.eventhandling.EventMessage;
+
+*/
 /**
  * 工程名称：wits-frameworks
  * 类路径：com.wits.frameworks.core.ddd.entity
@@ -9,8 +13,9 @@ package com.wits.frameworks.core.ddd.entity;
  * @createdate 2019-01-02 21:09
  * @desc
  * @see
- */
-public class SimpleEventMessage<T> implements EventMessage {
+ *//*
+
+public class SimpleEventMessage<T> implements EventMessage<T> {
 
 
     private static final long serialVersionUID = 4075952009259360956L;
@@ -77,3 +82,4 @@ public class SimpleEventMessage<T> implements EventMessage {
     }
 
 }
+*/

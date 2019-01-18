@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @desc
  * @see
  */
-public interface EventMessage extends Serializable {
+public interface EventMessageLoc extends Serializable {
 
     Class getPayloadType();
 

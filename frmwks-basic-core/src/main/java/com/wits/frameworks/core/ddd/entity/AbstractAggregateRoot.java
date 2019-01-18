@@ -1,5 +1,6 @@
 package com.wits.frameworks.core.ddd.entity;
 
+
 import org.axonframework.eventhandling.EventMessage;
 
 import java.io.Serializable;
@@ -21,23 +22,26 @@ public abstract class AbstractAggregateRoot <ID extends Serializable> extends Ab
 
     private transient boolean isDeleted = false;
 
-    @Transient
+/*    @Transient
     private transient EventContainer domainEventContainer;
 
     protected void apply(Object eventPayload) {
         getDomainEventContainer().addEvent(eventPayload);
-    }
+    }*/
 
     @Override
     public boolean isDeleted() {
         return isDeleted;
     }
 
+/*
     @Override
     public Collection<? extends EventMessage> getUncommittedDomainEvents() {
         return getDomainEventContainer().getEvents();
     }
+*/
 
+/*
     @Override
     public void commitDomainEvents() {
         getDomainEventContainer().commit();
@@ -58,5 +62,6 @@ public abstract class AbstractAggregateRoot <ID extends Serializable> extends Ab
             domainEventContainer = new EventContainer();
         }
     }
+*/
 
 }

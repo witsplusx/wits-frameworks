@@ -1,2 +1,4 @@
 docker run --name mysql8-single -p 3336:3306 -e MYSQL_ROOT_PASSWORD=wits -d mysql:8.0.12
+docker start mysql8-single
+
 
